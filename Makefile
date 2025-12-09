@@ -1,0 +1,15 @@
+.PHONY: help
+help: ## Show this help
+	@awk 'BEGIN {FS=":.*##"; OFS=""; print "\nUsage: make <target>\n"} \
+	/^##@/ { printf "\n\033[1m%s\033[0m\n", substr($$0,5); next } \
+	/^[a-zA-Z0-9_.-]+:.*##/ { gsub(/^[[:space:]]+|[[:space:]]+$$/,"",$$2); \
+	                          printf "  \033[36m%-28s\033[0m %s\n", $$1, $$2 } \
+	END { print "" }' $(MAKEFILE_LIST)
+
+.PHONY: clear
+clear:  ## Delete all __pycache__, pytest_cache, and .coverage, and .pymon
+	-@find . -name "__pycache__" -o -name ".pytest_cache" -o -name ".coverage" -o -name ".coverage.*"  -o -name ".pymon" | xargs rm -rf
+
+.PHONY: pyright
+pyright:  ## Run pyright
+	uv run pyright
