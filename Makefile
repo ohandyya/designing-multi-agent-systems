@@ -13,3 +13,16 @@ clear:  ## Delete all __pycache__, pytest_cache, and .coverage, and .pymon
 .PHONY: pyright
 pyright:  ## Run pyright
 	uv run pyright
+
+.PHONY: ruff-check
+ruff-check:  ## Run ruff linter check
+	uv run ruff check .
+	@echo "If you see error, you can auto fix the linter error by running `make ruff-check-fix` "
+
+.PHONY: ruff-check-fix
+ruff-check-fix:  ## Run ruff linter check and fix
+	uv run ruff check --fix .
+
+.PHONY: ruff-format
+ruff-format:  ## Run ruff formatter
+	uv run ruff format .
