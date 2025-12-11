@@ -17,7 +17,7 @@ pyright:  ## Run pyright
 .PHONY: ruff-check
 ruff-check:  ## Run ruff linter check
 	uv run ruff check .
-	@echo "If you see error, you can auto fix the linter error by running `make ruff-check-fix` "
+	@echo "If you see error, you can auto fix the linter error by running the make target: 'ruff-check-fix' "
 
 .PHONY: ruff-check-fix
 ruff-check-fix:  ## Run ruff linter check and fix
@@ -26,3 +26,11 @@ ruff-check-fix:  ## Run ruff linter check and fix
 .PHONY: ruff-format
 ruff-format:  ## Run ruff formatter
 	uv run ruff format .
+
+
+.PHONY: generate-env-script
+generate-env-script:	## Generate env script (env.sh)
+	@echo "set -a" > env.sh
+	@echo "source .env" >> env.sh
+	@echo "set +a" >> env.sh
+	@chmod +x env.sh
