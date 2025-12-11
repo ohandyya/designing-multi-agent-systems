@@ -1,6 +1,5 @@
 """Demo of using picoagents to create a multi-agent system"""
 
-import asyncio
 import os
 
 from picoagents import Agent
@@ -30,6 +29,7 @@ async def test_poet():
     print(result)
     
     print(result.context.messages[-1].content)
+
     
     
 # Add a critic agent
@@ -38,7 +38,7 @@ critic = Agent(
     description="POetry critic who provides constructive feedback on haiku poems.",
     instructions="You are a critic of haiku poems. When you see a haiku, provide 2 - 3 specific, actionable \
                     suggestions for improvement. Be constructive and brief. \
-                    If satisfied with teh kaiku, respond with 'Approved'.", 
+                    If satisfied with the haiku, respond with 'Approved'.", 
     model_client=client,
 )
 
@@ -65,7 +65,7 @@ async def run_orchestrator():
     
     async for message in stream:
         print(f"{message}")
-
+ 
 
 if __name__ == "__main__":
     
@@ -73,3 +73,5 @@ if __name__ == "__main__":
     
     # Run the web ui    
     serve(entities=[orchestrator], port=8070, auto_open=True)
+    
+    print("End of the program")

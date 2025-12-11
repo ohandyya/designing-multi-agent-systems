@@ -1,0 +1,13 @@
+{
+    "files.autoSaveWhenNoErrors": true,
+    "editor.codeActionsOnSave": {},
+    "editor.formatOnSave": false,
+    "editor.formatOnPaste": false,
+    "[python]": {
+        "editor.formatOnSave": false
+    },
+    "cSpell.words": [
+        "picoagents",
+        "webui"
+    ]
+}
