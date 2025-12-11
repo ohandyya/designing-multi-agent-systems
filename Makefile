@@ -26,3 +26,11 @@ ruff-check-fix:  ## Run ruff linter check and fix
 .PHONY: ruff-format
 ruff-format:  ## Run ruff formatter
 	uv run ruff format .
+
+
+.PHONY: generate-env-script
+generate-env-script:	## Generate env script (env.sh)
+	@echo "set -a" > env.sh
+	@echo "source .env" >> env.sh
+	@echo "set +a" >> env.sh
+	@chmod +x env.sh
