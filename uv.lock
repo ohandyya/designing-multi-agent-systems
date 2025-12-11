@@ -41,25 +41,25 @@ name = "designing-multi-agent-systems"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
-    { name = "pip" },
-    { name = "pyright" },
     { name = "requests" },
 ]
 
 [package.dev-dependencies]
 dev = [
+    { name = "pip" },
+    { name = "pyright" },
     { name = "ruff" },
 ]
 
 [package.metadata]
-requires-dist = [
-    { name = "pip", specifier = ">=25.3" },
-    { name = "pyright", specifier = ">=1.1.407" },
-    { name = "requests", specifier = ">=2.32.5" },
-]
+requires-dist = [{ name = "requests", specifier = ">=2.32.5" }]
 
 [package.metadata.requires-dev]
-dev = [{ name = "ruff", specifier = ">=0.14.8" }]
+dev = [
+    { name = "pip", specifier = ">=25.3" },
+    { name = "pyright", specifier = ">=1.1.40" },
+    { name = "ruff", specifier = ">=0.14.8" },
+]
 
 [[package]]
 name = "idna"
